@@ -1,0 +1,81 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4a90d9', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2c5282', 'lineColor': '#2c5282', 'secondaryColor': '#90cdf4', 'tertiaryColor': '#e2e8f0'}}}%%
+
+flowchart TD
+    subgraph INICIO["📁 INICIO"]
+        A[("🍷 Dataset CSV<br/>Wine Quality White<br/>4,898 registros")]
+    end
+
+    subgraph CARGA["1️⃣ CARGA Y VALIDACIÓN"]
+        B["📥 Cargar CSV<br/>pandas.read_csv()"]
+        C{"✓ Validar requisitos<br/>>2000 registros<br/>>10 columnas"}
+        D["📊 Identificar tipos<br/>de columnas"]
+    end
+
+    subgraph FALTANTES["2️⃣ VALORES FALTANTES"]
+        E["🔍 Calcular nulos<br/>por columna"]
+        F["📈 Generar heatmap<br/>de valores faltantes"]
+    end
+
+    subgraph ESTADISTICAS["3️⃣ ANÁLISIS ESTADÍSTICO"]
+        G["📐 Estadísticas descriptivas<br/>mean, std, min, max, mediana"]
+        H["📊 Análisis de quality<br/>frecuencias y moda"]
+    end
+
+    subgraph VISUALIZACIONES["4️⃣ VISUALIZACIONES"]
+        I["📊 Histogramas<br/>Variables numéricas"]
+        J["📦 Boxplots<br/>Detección outliers"]
+        K["📊 Gráfico barras<br/>Variable quality"]
+    end
+
+    subgraph OUTLIERS["5️⃣ DETECCIÓN OUTLIERS"]
+        L["🔢 Método IQR<br/>Q1 - 1.5*IQR<br/>Q3 + 1.5*IQR"]
+        M["📋 Conteo por<br/>variable"]
+    end
+
+    subgraph CORRELACIONES["6️⃣ CORRELACIONES"]
+        N["🔗 Matriz Pearson<br/>df.corr()"]
+        O["🌡️ Heatmap<br/>correlaciones"]
+        P["🏆 Top 5<br/>correlaciones"]
+    end
+
+    subgraph CLAUDE["7️⃣ INTEGRACIÓN CLAUDE API"]
+        Q["📝 Construir resumen<br/>del análisis"]
+        R["🤖 Enviar a Claude<br/>API Anthropic"]
+        S["📄 Recibir insights<br/>y recomendaciones"]
+    end
+
+    subgraph REPORTE["8️⃣ REPORTE FINAL"]
+        T["📑 Resumen ejecutivo"]
+        U["💡 3 Hallazgos clave"]
+        V["🔧 3 Recomendaciones"]
+        W[("📄 Reporte PDF")]
+    end
+
+    A --> B
+    B --> C
+    C -->|Válido| D
+    C -->|No válido| A
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    L --> M
+    M --> N
+    N --> O
+    O --> P
+    P --> Q
+    Q --> R
+    R --> S
+    S --> T
+    T --> U
+    U --> V
+    V --> W
+
+    style A fill:#2c5282,color:#fff
+    style W fill:#276749,color:#fff
+    style R fill:#9f7aea,color:#fff
+    style C fill:#dd6b20,color:#fff

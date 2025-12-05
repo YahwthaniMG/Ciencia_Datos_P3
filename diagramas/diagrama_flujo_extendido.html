@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Flujo - Análisis Extendido</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #2b6cb0 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c5282;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0f4f8 100%);
+            border-left: 4px solid #2c5282;
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #4a90d9 0%, #2c5282 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(44, 82, 130, 0.3);
+        }
+        .stat-card .number {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .stat-card .label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: #f8f9fa;
+            border-radius: 20px;
+        }
+        .legend-color {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+        }
+        .phases-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+        .phases-table th {
+            background: #2c5282;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .phases-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .phases-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .phases-table tr:hover {
+            background: #e6f2ff;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍷 Diagrama de Flujo - Análisis Extendido</h1>
+        <p class="subtitle">Versión 2: Análisis Completo con Machine Learning, PCA, Clustering e IA</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">16</div>
+                <div class="label">Fases de Análisis</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">16</div>
+                <div class="label">Visualizaciones</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">5</div>
+                <div class="label">Modelos ML</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">67.55%</div>
+                <div class="label">Best Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">4</div>
+                <div class="label">Clusters</div>
+            </div>
+        </div>
+
+        <div class="mermaid">
+flowchart TD
+    subgraph IN["📁 ENTRADA"]
+        A[("🍷 CSV\n4,898 x 12")]
+    end
+
+    subgraph P1["FASE 1-2: DATOS"]
+        B["📥 Cargar"] --> C{"✅ Validar"}
+        C --> D["🔍 Nulos\n0%"]
+        D --> E["📊 Heatmap"]
+    end
+
+    subgraph P2["FASE 3-4: ESTADÍSTICAS"]
+        F["📐 Descriptivas\nextendidas"]
+        G["📈 Asimetría\nCurtosis"]
+        H["🏷️ Categorías\nBaja/Media/Alta"]
+    end
+
+    subgraph P3["FASE 5: NORMALIDAD"]
+        I["🧪 Shapiro-Wilk"]
+        J["🧪 D'Agostino"]
+        K["📉 Q-Q Plots"]
+    end
+
+    subgraph P4["FASE 6: VISUALIZACIONES"]
+        L["📊 Histogramas\n+ KDE"]
+        M["📦 Boxplots"]
+        N["🎻 Violin plots"]
+        O["📊 Barras"]
+    end
+
+    subgraph P5["FASE 7: OUTLIERS"]
+        P["🔢 IQR\n1,063"]
+        Q["📏 Z-score"]
+    end
+
+    subgraph P6["FASE 8: CORRELACIONES"]
+        R["🔗 Pearson"]
+        S["🔗 Spearman"]
+        T["🌡️ Dual\nHeatmap"]
+        U["🏆 Top 10"]
+    end
+
+    subgraph P7["FASE 9: TESTS"]
+        V["📊 ANOVA"]
+        W["📊 Kruskal-Wallis"]
+        X["✅ p < 0.05"]
+    end
+
+    subgraph P8["FASE 10: PCA"]
+        Y["⚙️ Scale"]
+        Z["🔄 PCA"]
+        AA["📈 Scree"]
+        AB["📊 Biplot"]
+    end
+
+    subgraph P9["FASE 11: CLUSTERING"]
+        AC["📐 Elbow"]
+        AD["📊 Silhouette"]
+        AE["🎯 K-Means\nk=4"]
+        AF["📋 Perfiles"]
+    end
+
+    subgraph P10["FASE 12-13: ML"]
+        AG["🔀 Split\n80/20"]
+        AH["🤖 5 Modelos"]
+        AI["📊 CV 5-fold"]
+        AJ["🏆 RF\n67.55%"]
+    end
+
+    subgraph P11["FASE 14: FEATURES"]
+        AK["📊 Importance"]
+        AL["🏆 alcohol\n11.65%"]
+    end
+
+    subgraph P12["FASE 15: REGRESIÓN"]
+        AM["📈 Linear"]
+        AN["🌲 RF Reg"]
+        AO["📋 R²=0.51"]
+    end
+
+    subgraph P13["FASE 16: CLAUDE"]
+        AP["📝 Resumen\ncompleto"]
+        AQ["🤖 API\nClaude"]
+        AR["📄 Reporte\n8 secciones"]
+    end
+
+    subgraph OUT["📤 SALIDAS"]
+        AS[("📊 16 Gráficas")]
+        AT[("📄 Insights")]
+        AU[("📑 Reporte")]
+    end
+
+    A --> B
+    E --> F
+    F --> G --> H
+    H --> I --> J --> K
+    K --> L --> M --> N --> O
+    O --> P --> Q
+    Q --> R --> S --> T --> U
+    U --> V --> W --> X
+    X --> Y --> Z --> AA --> AB
+    AB --> AC --> AD --> AE --> AF
+    AF --> AG --> AH --> AI --> AJ
+    AJ --> AK --> AL
+    AL --> AM --> AN --> AO
+    AO --> AP --> AQ --> AR
+    AR --> AS
+    AR --> AT
+    AR --> AU
+
+    style A fill:#2c5282,color:#fff
+    style AU fill:#276749,color:#fff
+    style AQ fill:#9f7aea,color:#fff
+    style AJ fill:#dd6b20,color:#fff
+    style C fill:#38a169,color:#fff
+        </div>
+
+        <h3 style="color: #2c5282; margin-top: 40px;">📋 Detalle de Fases</h3>
+        
+        <table class="phases-table">
+            <thead>
+                <tr>
+                    <th>Fase</th>
+                    <th>Descripción</th>
+                    <th>Herramientas</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1-2</strong></td>
+                    <td>Carga, validación y calidad de datos</td>
+                    <td>pandas</td>
+                    <td>Heatmap de nulos</td>
+                </tr>
+                <tr>
+                    <td><strong>3-4</strong></td>
+                    <td>Estadísticas descriptivas extendidas</td>
+                    <td>pandas, numpy</td>
+                    <td>Tabla de estadísticas</td>
+                </tr>
+                <tr>
+                    <td><strong>5</strong></td>
+                    <td>Tests de normalidad</td>
+                    <td>scipy.stats</td>
+                    <td>Q-Q plots</td>
+                </tr>
+                <tr>
+                    <td><strong>6</strong></td>
+                    <td>Visualizaciones completas</td>
+                    <td>matplotlib, seaborn</td>
+                    <td>4 gráficas</td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td>Detección de outliers</td>
+                    <td>IQR, Z-score</td>
+                    <td>1,063 detectados</td>
+                </tr>
+                <tr>
+                    <td><strong>8</strong></td>
+                    <td>Análisis de correlaciones</td>
+                    <td>Pearson, Spearman</td>
+                    <td>Dual heatmap</td>
+                </tr>
+                <tr>
+                    <td><strong>9</strong></td>
+                    <td>Tests estadísticos</td>
+                    <td>ANOVA, Kruskal-Wallis</td>
+                    <td>11/11 significativas</td>
+                </tr>
+                <tr>
+                    <td><strong>10</strong></td>
+                    <td>Análisis de Componentes Principales</td>
+                    <td>sklearn PCA</td>
+                    <td>6 comp. para 80%</td>
+                </tr>
+                <tr>
+                    <td><strong>11</strong></td>
+                    <td>Clustering K-Means</td>
+                    <td>sklearn KMeans</td>
+                    <td>4 clusters</td>
+                </tr>
+                <tr>
+                    <td><strong>12-13</strong></td>
+                    <td>Machine Learning (5 modelos)</td>
+                    <td>sklearn</td>
+                    <td>RF: 67.55% acc</td>
+                </tr>
+                <tr>
+                    <td><strong>14</strong></td>
+                    <td>Feature Importance</td>
+                    <td>Random Forest</td>
+                    <td>alcohol: 11.65%</td>
+                </tr>
+                <tr>
+                    <td><strong>15</strong></td>
+                    <td>Modelos de Regresión</td>
+                    <td>Linear, RF Regressor</td>
+                    <td>R² = 0.51</td>
+                </tr>
+                <tr>
+                    <td><strong>16</strong></td>
+                    <td>Generación de Insights con IA</td>
+                    <td>Anthropic Claude API</td>
+                    <td>Reporte 8 secciones</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2c5282;"></div>
+                <span>Entrada</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #38a169;"></div>
+                <span>Validación</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #dd6b20;"></div>
+                <span>Mejor Modelo</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9f7aea;"></div>
+                <span>Integración IA</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #276749;"></div>
+                <span>Salidas</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Proyecto de Minería de Datos</strong> - Análisis Automatizado Avanzado de Calidad de Vinos Blancos</p>
+            <p>16 Fases • 16 Visualizaciones • 5 Modelos ML • Integración con Claude API</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#4a90d9',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2c5282',
+                lineColor: '#4a5568',
+                secondaryColor: '#90cdf4',
+                tertiaryColor: '#f0f4f8'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 15
+            }
+        });
+    </script>
+</body>
+</html>

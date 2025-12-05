@@ -1,0 +1,170 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4a90d9', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2c5282', 'lineColor': '#2c5282', 'secondaryColor': '#90cdf4', 'tertiaryColor': '#e2e8f0'}}}%%
+
+flowchart TD
+    subgraph INICIO["📁 ENTRADA"]
+        A[("🍷 Dataset CSV<br/>Wine Quality White<br/>4,898 registros x 12 cols")]
+    end
+
+    subgraph FASE1["FASE 1: CARGA Y VALIDACIÓN"]
+        B["📥 Cargar datos<br/>pandas.read_csv()"]
+        C{"✅ Validar<br/>>2000 registros<br/>>10 columnas"}
+        D["🏷️ Identificar tipos<br/>Numéricas vs Categóricas"]
+        E["🔍 Detectar duplicados<br/>937 encontrados"]
+    end
+
+    subgraph FASE2["FASE 2: CALIDAD DE DATOS"]
+        F["📊 Análisis nulos<br/>0% faltantes"]
+        G["🌡️ Heatmap<br/>valores faltantes"]
+        H["📋 Crear categorías<br/>Baja/Media/Alta"]
+    end
+
+    subgraph FASE3["FASE 3: ESTADÍSTICAS"]
+        I["📐 Descriptivas extendidas<br/>mean, std, var, IQR"]
+        J["📈 Asimetría y Curtosis<br/>skew(), kurtosis()"]
+        K["📊 Distribución quality<br/>Frecuencias y %"]
+    end
+
+    subgraph FASE4["FASE 4: TESTS NORMALIDAD"]
+        L["🧪 Shapiro-Wilk<br/>n < 5000"]
+        M["🧪 D'Agostino-Pearson<br/>normaltest()"]
+        N["📉 Q-Q Plots<br/>Verificación visual"]
+    end
+
+    subgraph FASE5["FASE 5: VISUALIZACIONES"]
+        O["📊 Histogramas + KDE"]
+        P["📦 Boxplots<br/>con outliers"]
+        Q["🎻 Violin plots<br/>por categoría"]
+        R["📊 Barras quality"]
+    end
+
+    subgraph FASE6["FASE 6: OUTLIERS"]
+        S["🔢 Método IQR<br/>1,063 detectados"]
+        T["📏 Método Z-score<br/>|z| > 3"]
+        U["📋 Top variables<br/>citric acid, chlorides"]
+    end
+
+    subgraph FASE7["FASE 7: CORRELACIONES"]
+        V["🔗 Pearson<br/>Correlación lineal"]
+        W["🔗 Spearman<br/>Correlación monotónica"]
+        X["🌡️ Dual heatmap"]
+        Y["🏆 Top 10 correlaciones"]
+        Z["📊 Corr vs quality"]
+    end
+
+    subgraph FASE8["FASE 8: TESTS ESTADÍSTICOS"]
+        AA["📊 ANOVA<br/>F-test por grupos"]
+        AB["📊 Kruskal-Wallis<br/>Test no paramétrico"]
+        AC["✅ Significancia<br/>p < 0.05"]
+    end
+
+    subgraph FASE9["FASE 9: PCA"]
+        AD["⚙️ StandardScaler<br/>Normalización"]
+        AE["🔄 PCA completo<br/>n_components=all"]
+        AF["📈 Scree plot<br/>Varianza explicada"]
+        AG["📊 Biplot<br/>Loadings"]
+        AH["📍 Scatter PCA<br/>PC1 vs PC2"]
+    end
+
+    subgraph FASE10["FASE 10: CLUSTERING"]
+        AI["📐 Método del codo<br/>Inertia"]
+        AJ["📊 Silhouette Score<br/>Calidad clusters"]
+        AK["🎯 K-Means<br/>k=4 clusters"]
+        AL["📋 Perfiles<br/>de clusters"]
+    end
+
+    subgraph FASE11["FASE 11: MACHINE LEARNING"]
+        AM["🔀 Train/Test Split<br/>80/20 estratificado"]
+        AN["🤖 5 Modelos:<br/>LR, RF, GB, KNN, DT"]
+        AO["📊 Cross-Validation<br/>5-fold"]
+        AP["📋 Métricas<br/>Acc, Prec, Rec, F1"]
+        AQ["🏆 Mejor: Random Forest<br/>67.55% accuracy"]
+    end
+
+    subgraph FASE12["FASE 12: FEATURE IMPORTANCE"]
+        AR["📊 Importancia RF<br/>feature_importances_"]
+        AS["🏆 Top: alcohol<br/>11.65%"]
+        AT["📈 Gráfico barras<br/>ranking variables"]
+    end
+
+    subgraph FASE13["FASE 13: REGRESIÓN"]
+        AU["📈 Linear Regression"]
+        AV["🌲 RF Regressor"]
+        AW["📋 Métricas<br/>MSE, RMSE, MAE, R²"]
+        AX["📊 Coeficientes<br/>interpretación"]
+    end
+
+    subgraph FASE14["FASE 14: CLAUDE API"]
+        AY["📝 Compilar resumen<br/>completo análisis"]
+        AZ["🤖 API Anthropic<br/>claude-sonnet-4"]
+        BA["📄 Reporte ejecutivo<br/>8 secciones"]
+    end
+
+    subgraph SALIDA["📤 SALIDAS"]
+        BB[("📊 16 Visualizaciones<br/>outputs/")]
+        BC[("📄 Resumen análisis<br/>reports/")]
+        BD[("💡 Insights Claude<br/>reports/")]
+        BE[("📑 Reporte Final")]
+    end
+
+    A --> B
+    B --> C
+    C -->|✅| D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    L --> M
+    M --> N
+    N --> O
+    O --> P
+    P --> Q
+    Q --> R
+    R --> S
+    S --> T
+    T --> U
+    U --> V
+    V --> W
+    W --> X
+    X --> Y
+    Y --> Z
+    Z --> AA
+    AA --> AB
+    AB --> AC
+    AC --> AD
+    AD --> AE
+    AE --> AF
+    AF --> AG
+    AG --> AH
+    AH --> AI
+    AI --> AJ
+    AJ --> AK
+    AK --> AL
+    AL --> AM
+    AM --> AN
+    AN --> AO
+    AO --> AP
+    AP --> AQ
+    AQ --> AR
+    AR --> AS
+    AS --> AT
+    AT --> AU
+    AU --> AV
+    AV --> AW
+    AW --> AX
+    AX --> AY
+    AY --> AZ
+    AZ --> BA
+    BA --> BB
+    BA --> BC
+    BA --> BD
+    BD --> BE
+
+    style A fill:#2c5282,color:#fff
+    style BE fill:#276749,color:#fff
+    style AZ fill:#9f7aea,color:#fff
+    style AQ fill:#dd6b20,color:#fff
+    style C fill:#38a169,color:#fff

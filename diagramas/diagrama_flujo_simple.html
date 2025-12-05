@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Flujo - Análisis Simple</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c5282;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .info-box {
+            background: #f0f4f8;
+            border-left: 4px solid #4a90d9;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍷 Diagrama de Flujo - Análisis Básico</h1>
+        <p class="subtitle">Versión 1: Análisis Exploratorio de Datos con Integración de IA</p>
+        
+        <div class="info-box">
+            <strong>Dataset:</strong> Wine Quality - White Wine | 
+            <strong>Registros:</strong> 4,898 | 
+            <strong>Variables:</strong> 12 | 
+            <strong>Secciones:</strong> 8 etapas de análisis
+        </div>
+
+        <div class="mermaid">
+flowchart TD
+    subgraph INICIO["📁 ENTRADA"]
+        A[("🍷 Dataset CSV\nWine Quality White\n4,898 registros")]
+    end
+
+    subgraph FASE1["1️⃣ CARGA Y VALIDACIÓN"]
+        B["📥 Cargar CSV\npandas.read_csv()"]
+        C{"✓ Validar\n>2000 registros\n>10 columnas"}
+        D["📊 Identificar tipos\nde columnas"]
+    end
+
+    subgraph FASE2["2️⃣ VALORES FALTANTES"]
+        E["🔍 Calcular nulos\npor columna"]
+        F["📈 Generar heatmap\nde valores faltantes"]
+    end
+
+    subgraph FASE3["3️⃣ ESTADÍSTICAS"]
+        G["📐 Descriptivas\nmean, std, min, max"]
+        H["📊 Análisis quality\nfrecuencias y moda"]
+    end
+
+    subgraph FASE4["4️⃣ VISUALIZACIONES"]
+        I["📊 Histogramas"]
+        J["📦 Boxplots"]
+        K["📊 Barras quality"]
+    end
+
+    subgraph FASE5["5️⃣ OUTLIERS"]
+        L["🔢 Método IQR"]
+        M["📋 Conteo outliers"]
+    end
+
+    subgraph FASE6["6️⃣ CORRELACIONES"]
+        N["🔗 Matriz Pearson"]
+        O["🌡️ Heatmap"]
+        P["🏆 Top 5"]
+    end
+
+    subgraph FASE7["7️⃣ CLAUDE API"]
+        Q["📝 Construir resumen"]
+        R["🤖 Enviar a Claude\nAnthropic API"]
+        S["📄 Recibir insights"]
+    end
+
+    subgraph SALIDA["8️⃣ REPORTE FINAL"]
+        T["📑 Resumen ejecutivo\n💡 3 Hallazgos\n🔧 3 Recomendaciones"]
+        U[("📄 Reporte\nPDF/TXT")]
+    end
+
+    A --> B
+    B --> C
+    C -->|Válido| D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    L --> M
+    M --> N
+    N --> O
+    O --> P
+    P --> Q
+    Q --> R
+    R --> S
+    S --> T
+    T --> U
+
+    style A fill:#2c5282,color:#fff,stroke:#1a365d
+    style U fill:#276749,color:#fff,stroke:#1a4731
+    style R fill:#9f7aea,color:#fff,stroke:#6b46c1
+    style C fill:#dd6b20,color:#fff,stroke:#c05621
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2c5282;"></div>
+                <span>Entrada de datos</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #dd6b20;"></div>
+                <span>Validación</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9f7aea;"></div>
+                <span>Integración IA</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #276749;"></div>
+                <span>Salida final</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Proyecto de Minería de Datos - Análisis Automatizado de Calidad de Vinos</p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#4a90d9',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2c5282',
+                lineColor: '#2c5282',
+                secondaryColor: '#90cdf4',
+                tertiaryColor: '#f0f4f8'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Análisis de datos
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualización
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+
+# Estadísticas
+scipy>=1.11.0
+
+# API de Claude (Anthropic)
+anthropic>=0.39.0
+
+# Manejo de variables de entorno
+python-dotenv>=1.0.0
+
+# Jupyter Notebook
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Opcional: para exportar reportes (Puedes comentarlas si no las necesitas)
+fpdf2>=2.7.0
+jinja2>=3.1.0
