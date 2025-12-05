@@ -16,7 +16,7 @@ Este proyecto analiza automáticamente archivos CSV y genera:
 - **Nombre:** Wine Quality - White Wine
 - **Registros:** 4,898
 - **Columnas:** 12 (todas numéricas)
-- **Fuente:** UCI Machine Learning Repository
+- **Fuente:** Kaggle White Wine Quality
 
 ### Variables del dataset:
 | Variable | Descripción | Tipo |
