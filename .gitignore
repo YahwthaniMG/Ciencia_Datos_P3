@@ -30,5 +30,3 @@ Thumbs.db
 # Outputs generados
 outputs/
 reports/
-*.pdf
-!docs/*.pdf
