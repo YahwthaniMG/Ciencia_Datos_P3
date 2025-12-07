@@ -92,8 +92,12 @@ $env:ANTHROPIC_API_KEY="tu_api_key_aqui"
 
 ### Ejecutar el Notebook
 ```bash
-jupyter notebook automated_analysis_v1.ipynb
-jupyter notebook automated_analysis_v2.ipynb // Si deseas utilizar ML
+// Ejemplos
+jupyter notebook automated_analysis_example_v1.ipynb
+jupyter notebook automated_analysis_example_v2.ipynb // Si deseas utilizar ML
+// Si deseas correr tu propio analisis, solo configura la primer celda
+jupyter notebook automated_analysis_example_v1.ipynb
+jupyter notebook automated_analysis_example_v2.ipynb // Si deseas utilizar ML
 ```
 
 ### Estructura del análisis:
