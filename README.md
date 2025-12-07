@@ -95,6 +95,7 @@ $env:ANTHROPIC_API_KEY="tu_api_key_aqui"
 // Ejemplos
 jupyter notebook automated_analysis_example_v1.ipynb
 jupyter notebook automated_analysis_example_v2.ipynb // Si deseas utilizar ML
+
 // Si deseas correr tu propio analisis, solo configura la primer celda
 jupyter notebook automated_analysis_example_v1.ipynb
 jupyter notebook automated_analysis_example_v2.ipynb // Si deseas utilizar ML
@@ -123,8 +124,10 @@ Ciencia_Datos_P3/
 ├── requirements.txt     # Dependencias de Python
 ├── data/
 │   └── winequality-white.csv
-├── automated_analysis_v1.ipynb  # Notebook principal (Analisis sin ML)
-├── automated_analysis_v2.ipynb  # Notebook secundario (Analisis con ML)
+├── automated_analysis_example_v1.ipynb  # Notebook ejemplo sin ML
+├── automated_analysis_example_v2.ipynb  # Notebook ejemplo con ML
+├── automated_analysis_generic_v1.ipynb  # Notebook base sin ML
+├── automated_analysis_generic_v2.ipynb  # Notebook base con ML
 ├── outputs/             # Gráficas generadas
 └── reports/             # Reportes txt generados (Tip: Cambia la extension a md)
 ```
